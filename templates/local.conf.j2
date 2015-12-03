@@ -40,6 +40,12 @@ ENABLED_SERVICES+=,octavia,o-cw,o-hk,o-hm,o-api
 
 {% endif %}
 
+{% if neutron_lbaas %}
+# Enable LBaaS v1
+enable_service q-lbaas
+enable_service q-fwaas
+{% endif %}
+
 {% if swift %}
 # Enable Swift
 enable_service s-proxy
