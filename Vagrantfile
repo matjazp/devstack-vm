@@ -25,8 +25,8 @@ Vagrant.configure("2") do |config|
     end
 
     # config for KVM (libvirt) provider
-    config.vm.provider :libvirt do |lv|
-        config.vm.box = "matjazp/ubuntu-trusty64"
+    config.vm.provider :libvirt do |lv, override|
+        override.vm.box = "matjazp/ubuntu-trusty64"
         lv.memory = 8192
         lv.cpus = 2
         lv.nested = true
