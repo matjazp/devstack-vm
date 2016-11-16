@@ -14,6 +14,8 @@ HOST_IP={{ public_ip }}
 
 FLOATING_RANGE={{ floating_ip_range }}
 
+GIT_BASE=https://github.com
+
 {% if neutron %}
 #
 # Enable Neutron
@@ -41,6 +43,12 @@ ENABLED_SERVICES+=,octavia,o-cw,o-hk,o-hm,o-api
 enable_plugin neutron-lbaas-dashboard https://git.openstack.org/openstack/neutron-lbaas-dashboard {{ version }}
 {% endif %}
 
+{% endif %}
+
+{% if neutron_lbaas %}
+# Enable LBaaS v1
+enable_service q-lbaas
+enable_service q-fwaas
 {% endif %}
 
 {% if swift %}
