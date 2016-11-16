@@ -33,8 +33,7 @@ Vagrant.configure("2") do |config|
         lv.volume_cache = 'none'
     end
 
-    config.vm.provision :ansible do |ansible|
-        ansible.host_key_checking = false
+    config.vm.provision "ansible_local" do |ansible|
         ansible.playbook = "devstack.yml"
         ansible.verbose = "v"
     end
